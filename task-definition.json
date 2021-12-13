@@ -1,11 +1,18 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:187156503161:task-definition/hello-aws-taskdefinition:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:187156503161:task-definition/hello-aws-taskdefinition:6",
   "containerDefinitions": [
     {
       "name": "hello-aws",
       "image": "187156503161.dkr.ecr.eu-central-1.amazonaws.com/hello-aws",
-      "cpu": 0,
-      "portMappings": [],
+      "cpu": 128,
+      "memory": 128,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
       "essential": true,
       "environment": [],
       "mountPoints": [],
@@ -14,7 +21,7 @@
   ],
   "family": "hello-aws-taskdefinition",
   "executionRoleArn": "arn:aws:iam::187156503161:role/ecsTaskExecutionRole",
-  "revision": 1,
+  "revision": 6,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -30,6 +37,6 @@
   "requiresCompatibilities": ["EC2"],
   "cpu": "128",
   "memory": "128",
-  "registeredAt": "2021-12-13T14:41:28.958000+01:00",
+  "registeredAt": "2021-12-13T16:11:00.496000+01:00",
   "registeredBy": "arn:aws:iam::187156503161:root"
 }
