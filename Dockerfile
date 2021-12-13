@@ -14,11 +14,11 @@ RUN go mod download
 # Copiamo i sorgenti Go all'interno del container
 COPY *.go ./
 
-# buildiamo l'eseguibile e lo posizioniamo nella root directory
+# Buildiamo l'eseguibile e lo posizioniamo nella root directory
 RUN go build -o /aws-ecs-poc
 
-# apriamo la porta 8080 (utilizzata dal nostro webserver)
+# Specifichiamo che la nostra app usa la porta 8080 
 EXPOSE 8080 
 
-# Specifichiamo a Docker il comando da eseguire quando la nostra immagine viene utilizzata per avviare un container
+# Specifichiamo a Docker il comando da eseguire quando viene avviato un container a partire dalla nostra immagine
 CMD [ "/aws-ecs-poc" ]
