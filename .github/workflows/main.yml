@@ -11,14 +11,16 @@ on:
       - main
 
 env:
-  AWS_REGION: eu-central-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: 187156503161.dkr.ecr.eu-central-1.amazonaws.com/hello-aws           # set this to your Amazon ECR repository name
-  ECS_SERVICE: hello-aws-service                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: default                        # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: ecs-task.json # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: hello-aws                    # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  AWS_REGION: eu-central-1 # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: hello-aws # set this to your Amazon ECR repository name
+  ECS_SERVICE: hello-aws-service # set this to your Amazon ECS service name
+  ECS_CLUSTER: default # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION:
+    ecs-task.json # set this to the path to your Amazon ECS task definition
+    # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME:
+    hello-aws # set this to the name of the container in the
+    # containerDefinitions section of your task definition
 
 jobs:
   deploy:
