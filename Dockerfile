@@ -17,5 +17,8 @@ COPY *.go ./
 # buildiamo l'eseguibile e lo posizioniamo nella root directory
 RUN go build -o /aws-ecs-poc
 
+# apriamo la porta 8080 (utilizzata dal nostro webserver)
+EXPOSE 8080 
+
 # Specifichiamo a Docker il comando da eseguire quando la nostra immagine viene utilizzata per avviare un container
 CMD [ "/aws-ecs-poc" ]
