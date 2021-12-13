@@ -15,6 +15,7 @@ env:
   ECR_REPOSITORY: hello-aws # set this to your Amazon ECR repository name
   ECS_SERVICE: hello-aws-service # set this to your Amazon ECS service name
   ECS_CLUSTER: default # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: task-definition.json
   CONTAINER_NAME: hello-aws
 
 jobs:
