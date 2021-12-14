@@ -11,11 +11,11 @@ on:
       - main
 
 env:
-  AWS_REGION: eu-central-1 # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: hello-aws # set this to your Amazon ECR repository name
-  ECS_SERVICE: hello-aws-service # set this to your Amazon ECS service name
-  ECS_CLUSTER: default # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json
+  AWS_REGION: eu-central-1 # AWS region utilizzata
+  ECR_REPOSITORY: hello-aws # nome della repository ECR
+  ECS_SERVICE: hello-aws-service # nome del service ECS
+  ECS_CLUSTER: default # nome del cluster ECS
+  ECS_TASK_DEFINITION: task-definition.json # location della task definition
   CONTAINER_NAME: hello-aws
 
 jobs:
@@ -50,10 +50,6 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
-      #      - name: Download task definition
-      #        run: |
-      #          aws ecs describe-task-definition --task-definition hello-aws-taskdefinition > task-definition.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
